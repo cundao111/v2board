@@ -5841,14 +5841,14 @@
                     onChange: e=>this.set("safe", "email_whitelist_suffix", e.target.value.split(","))
                 })) : "", f.a.createElement(m, {
                     title: "\u9632\u673a\u5668\u4eba",
-                    description: "\u5f00\u542f\u540e\u5c06\u4f1a\u4f7f\u7528Google reCAPTCHA\u9632\u6b62\u673a\u5668\u4eba\u3002"
+                    description: "\u5f00\u542f\u540e\u5c06\u4f7f\u7528 Cloudflare Turnstile \u9632\u6b62\u673a\u5668\u4eba\u3002"
                 }, f.a.createElement(l["a"], {
                     checked: parseInt(_.recaptcha_enable),
                     onChange: e=>this.set("safe", "recaptcha_enable", e ? 1 : 0)
                 })), _.recaptcha_enable ? f.a.createElement(f.a.Fragment, null, f.a.createElement(m, {
                     isChildren: !0,
                     title: "\u5bc6\u94a5",
-                    description: "\u5728Google reCAPTCHA\u7533\u8bf7\u7684\u5bc6\u94a5\u3002"
+                    description: "\u5728 Cloudflare Turnstile \u7533\u8bf7\u7684\u5bc6\u94a5\u3002"
                 }, f.a.createElement("input", {
                     type: "text",
                     className: "form-control",
@@ -5858,13 +5858,59 @@
                 })), f.a.createElement(m, {
                     isChildren: !0,
                     title: "\u7f51\u7ad9\u5bc6\u94a5",
-                    description: "\u5728Google reCAPTCH\u7533\u8bf7\u7684\u7f51\u7ad9\u5bc6\u94a5\u3002"
+                    description: "\u5728 Cloudflare Turnstile \u7533\u8bf7\u7684\u7f51\u7ad9\u5bc6\u94a5\u3002"
                 }, f.a.createElement("input", {
                     type: "text",
                     className: "form-control",
                     placeholder: "\u8bf7\u8f93\u5165",
                     defaultValue: _.recaptcha_site_key,
                     onChange: e=>this.set("safe", "recaptcha_site_key", e.target.value)
+                }))) : "", f.a.createElement(m, {
+                    title: "Cap CAPTCHA",
+                    description: "开启后，注册用户可在 Cloudflare Turnstile 与 Cap CAPTCHA 之间选择验证方式。"
+                }, f.a.createElement(l["a"], {
+                    checked: parseInt(_.cap_enable),
+                    onChange: e=>this.set("safe", "cap_enable", e ? 1 : 0)
+                })), _.cap_enable ? f.a.createElement(f.a.Fragment, null, f.a.createElement(m, {
+                    isChildren: !0,
+                    title: "Cap 服务地址",
+                    description: "Cap 对外访问地址，例如：https://cap.example.com"
+                }, f.a.createElement("input", {
+                    type: "text",
+                    className: "form-control",
+                    placeholder: "https://cap.example.com",
+                    defaultValue: _.cap_endpoint,
+                    onChange: e=>this.set("safe", "cap_endpoint", e.target.value)
+                })), f.a.createElement(m, {
+                    isChildren: !0,
+                    title: "Cap 网站密钥",
+                    description: "在 Cap 后台创建站点后获得的 Site Key。"
+                }, f.a.createElement("input", {
+                    type: "text",
+                    className: "form-control",
+                    placeholder: "请输入",
+                    defaultValue: _.cap_site_key,
+                    onChange: e=>this.set("safe", "cap_site_key", e.target.value)
+                })), f.a.createElement(m, {
+                    isChildren: !0,
+                    title: "Cap 密钥",
+                    description: "在 Cap 后台创建站点后获得的 Secret Key，请勿泄露。"
+                }, f.a.createElement("input", {
+                    type: "password",
+                    className: "form-control",
+                    placeholder: "请输入",
+                    defaultValue: _.cap_secret,
+                    onChange: e=>this.set("safe", "cap_secret", e.target.value)
+                })), f.a.createElement(m, {
+                    isChildren: !0,
+                    title: "Cap 前端脚本地址",
+                    description: "默认使用 jsDelivr；大陆用户建议填写自托管的 cap-widget 脚本地址。"
+                }, f.a.createElement("input", {
+                    type: "text",
+                    className: "form-control",
+                    placeholder: "https://cdn.jsdelivr.net/npm/cap-widget@latest",
+                    defaultValue: _.cap_widget_url,
+                    onChange: e=>this.set("safe", "cap_widget_url", e.target.value)
                 }))) : "", f.a.createElement(m, {
                     title: "IP\u6ce8\u518c\u9650\u5236",
                     description: "\u5f00\u542f\u540e\u5982\u679cIP\u6ce8\u518c\u8d26\u6237\u8fbe\u5230\u89c4\u5219\u8981\u6c42\u5c06\u4f1a\u88ab\u9650\u5236\u6ce8\u518c\uff0c\u8bf7\u6ce8\u610fIP\u5224\u65ad\u53ef\u80fd\u56e0\u4e3aCDN\u6216\u524d\u7f6e\u4ee3\u7406\u5bfc\u81f4\u95ee\u9898\u3002"
