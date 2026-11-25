@@ -57551,6 +57551,7 @@
                                         email_code: c
                                     },
                                     l && (p["recaptcha_data"] = l),
+                                    window.V2BoardRegistrationCaptcha && (p["captcha_provider"] = window.V2BoardRegistrationCaptcha.provider, p["captcha_token"] = window.V2BoardRegistrationCaptcha.token),
                                     n.next = 8,
                                     Object(i["b"])("/passport/auth/register", p);
                                 case 8:
