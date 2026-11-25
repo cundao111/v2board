@@ -15,7 +15,9 @@ class AuthRegister extends FormRequest
     {
         return [
             'email' => 'required|string|email:strict|max:64|regex:/^[\x21-\x7E]+$/',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8',
+            'captcha_provider' => 'nullable|in:turnstile,cap',
+            'captcha_token' => 'nullable|string'
         ];
     }
 
